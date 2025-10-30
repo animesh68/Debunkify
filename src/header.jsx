@@ -7,7 +7,7 @@ function Header() {
       <div className="header_div">
         <Link to="/" className="home">
         <h1 className="title">
-          🕵️‍♂️ Debunkify
+          RabbitHole.AI
         </h1>
         </Link>
         <nav className="nav">

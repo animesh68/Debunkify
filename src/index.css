@@ -392,3 +392,295 @@
   box-shadow: 0 0 12px rgba(94, 179, 255, 0.6);
   transform: scale(1.2);
 }
+
+/* ===============================
+   🌐 Full Responsive Redesign
+   =============================== */
+
+/* GLOBAL RESET */
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* -------- HEADER -------- */
+.header {
+  background-color: #000205;
+  color: #f1f5f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.header_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 0;
+  color: #f1f5f9;
+}
+
+/* NAVIGATION */
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #60a5fa;
+}
+
+/* Hamburger menu toggle (hidden by default) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #f1f5f9;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* -------- MOBILE STYLES -------- */
+@media (max-width: 768px) {
+  .header_div {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    background-color: #000205;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-top: 1px solid #111;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}
+
+/* -------- HOME / STATIC -------- */
+.static-title,
+.mainheader {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.homepara {
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  padding: 1rem;
+  line-height: 1.4;
+}
+
+/* -------- RABBITHOLE -------- */
+.rabbi {
+  padding: 6rem 1rem 2rem; /* accounts for fixed header */
+  text-align: center;
+}
+
+.icey {
+  font-size: clamp(1.4rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.input-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.icew {
+  width: 95%;
+  font-size: 1rem;
+  min-height: 100px;
+  border: 1.5px solid #ff004c;
+  border-radius: 10px;
+  padding: 1rem;
+  resize: none;
+  background-color: #111;
+  color: white;
+}
+
+.send-btn {
+  width: 95%;
+  max-width: 300px;
+  background-color: #ff004c;
+  color: #fff;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+}
+
+.send-btn:hover {
+  background-color: #ff1a63;
+  transform: translateY(-2px);
+}
+
+/* -------- TINFOIL -------- */
+.cons1, .cons2, .cons3 {
+  width: 100%;
+  max-width: 350px;
+  margin: 1rem auto;
+}
+
+.cons1img, .cons2img, .cons3img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.85rem;
+}
+
+/* Prevent content hiding under fixed header */
+main, .rabbi, .tinf {
+  margin-top: 70px;
+}
+
+
+@media (max-width: 768px) {
+
+  /* HEADER stays consistent */
+  .header_div {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+  }
+
+  .title {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  /* Force nav to remain inline */
+  .nav {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    position: static !important;
+    width: auto !important;
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .nav a {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    color: #e2e8f0;
+    white-space: nowrap;
+  }
+
+  /* Make nav scrollable horizontally if screen is tight */
+  .header_div {
+    overflow-x: auto;
+  }
+
+  /* Hide any hamburger icon if present */
+  .hamburger {
+    display: none !important;
+  }
+
+  /* Adjust body spacing to fit smaller screens */
+  body {
+    font-size: 16px;
+    overflow-x: hidden;
+  }
+
+  /* Reduce text size in large sections */
+  .static-title,
+  .homepara,
+  .icey,
+  .mainheader {
+    font-size: clamp(1rem, 4vw, 1.8rem);
+  }
+
+  /* Fix RabbitHole layout */
+  .rabbi {
+    padding: 6rem 1rem 2rem;
+  }
+
+  .icew {
+    width: 90%;
+    min-height: 120px;
+  }
+
+  .send-btn {
+    width: 90%;
+    margin-top: 0.75rem;
+  }
+
+  .response-area {
+    width: 90%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* Tiny screens */
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .nav {
+    gap: 0.5rem;
+  }
+
+  .nav a {
+    font-size: 0.9rem;
+  }
+}
